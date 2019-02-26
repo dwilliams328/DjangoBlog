@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     #assign post_list view to root url
     path('',views.post_list,name='post_list'),
+    path('testing/',views.post_test,name='post_test'),
 ]

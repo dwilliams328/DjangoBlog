@@ -1,23 +1,23 @@
+{% load staticfiles %}
 <html>
     <head>
         <title>David's blog</title>
+        <!-- The browser will retrieve the HTML page from the web server but consult its cache for the static assets (JavaScript, CSS, images) -->
+        <link rel="stylesheet" href="{%static 'blog/css/style.css' %}">
     </head>
     <body>
-        <div>
-            <h1><a href="/">David's Blog</a></h1>
-        </div>
+	<div>
+	    <h1><a href="/">David Blog</a></h1>
+	</div>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
-
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+    <p> please be red </p>
+    {{ posts }}
     </body>
 </html>
